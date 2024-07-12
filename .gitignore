@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+pyrightconfig.json
+.env
+.coverage
+htmlcov
+.pytest_cache
+.ruff_cache
