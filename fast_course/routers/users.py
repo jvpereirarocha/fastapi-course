@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 from fastapi import APIRouter
 
-from fast_course.schemas.users import UserDB, UserPublic, UserSchema
+from fast_course.schemas.users import UserDB, UserList, UserPublic, UserSchema
 
 user_router = APIRouter(prefix='/users')
 
@@ -15,3 +15,8 @@ def create_user(user_schema: UserSchema):
     FAKE_DB.append(user_with_id)
 
     return user_with_id
+
+
+@user_router.get('/', status_code=HTTPStatus.OK, response_model=UserList)
+def get_all_users():
+    return {'users': FAKE_DB}

@@ -15,3 +15,7 @@ class UserPublic(_BaseUserData):
 
 
 class UserDB(UserPublic): ...
+
+
+class UserList(BaseModel):
+    users: list[UserPublic]
