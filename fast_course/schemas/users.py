@@ -6,12 +6,12 @@ class _BaseUserData(BaseModel):
     email: EmailStr
 
 
-class CreateUserSchema(_BaseUserData):
+class UserSchema(_BaseUserData):
     password: str
 
 
-class CreatedUserPublic(_BaseUserData):
+class UserPublic(_BaseUserData):
     id: int
 
 
-class UserDB(CreatedUserPublic): ...
+class UserDB(UserPublic): ...
