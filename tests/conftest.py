@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from fast_course.main import app
-from fast_course.models.users import table_registry
+from fast_course.models.base import mapped_registry
 
 
 @pytest.fixture
@@ -31,9 +31,9 @@ def mock_user_public():
 @pytest.fixture
 def session():
     engine = create_engine('sqlite:///:memory:')
-    table_registry.metadata.create_all(engine)
+    mapped_registry.metadata.create_all(engine)
 
     with Session(engine) as session:
         yield session
 
-    table_registry.metadata.drop_all(engine)
+    mapped_registry.metadata.drop_all(engine)
